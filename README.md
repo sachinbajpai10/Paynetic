@@ -1,4 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Paynetic – Global Contractor Payments Portal
+
+A responsive, pixel-perfect dashboard prototype for the Paynetic contractor payments portal. Built with Next.js 14+ (App Router), Tailwind CSS, shadcn/ui, Lucide icons, and Framer Motion.
+
+## Folder structure
+
+```
+src/
+├── app/
+│   ├── globals.css       # Tailwind + Paynetic theme (navy/blue)
+│   ├── layout.tsx        # Root layout with GlobalNav
+│   └── page.tsx          # Dashboard page
+├── components/
+│   ├── global-nav.tsx    # Top bar: logo, search, New Invoice+, user (Sarah Doe)
+│   ├── contractor-ledger-table.tsx  # “Select Contracts to Pay” table
+│   └── ui/               # shadcn: button, card, table, avatar, checkbox
+├── data/
+│   └── mockData.ts       # Urgent payments, ledger rows, metrics, FX insight
+└── lib/
+    └── utils.ts          # cn() for class names
+```
+
+## Dashboard (Screen 1)
+
+- **Global nav:** Paynetic logo, search bar, prominent “New Invoice +” button, user profile (Sarah Doe, Rochester, NY).
+- **Handle Urgent Payments First:** Contractor avatar, name, status (Overdue/Upcoming), Review / Pay Now.
+- **Smart FX Insights:** “FX rate trending up!” card with Schedule Now.
+- **Metric cards:** Total Spending ($24,000), Payments Pending (12), Payment Review (1), Payments Completed (24).
+- **Contractor Ledger:** Table with checkboxes, Contractor (avatar), Invoice Date, Amount, Country, color-coded Status, Review/Pay actions.
+
+Data is driven by `src/data/mockData.ts`. The ledger supports row selection (checkboxes); UI is responsive (mobile and desktop).
 
 ## Getting Started
 
