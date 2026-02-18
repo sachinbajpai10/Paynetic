@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useCallback, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -36,13 +36,14 @@ const PARSED_FORM_DEFAULT = {
   contractorName: "Aligned Assets",
   contractorCountry: "United Kingdom",
   contractorImage: "https://i.pravatar.cc/150?u=AlignedAssets",
+  contractorCurrency: "GBP",
   invoiceNumber: "INV-2025-847",
   date: "11/28/2025",
   taxForm: "W-8BEN",
   amount: "2,500",
 };
 
-export default function PaymentsPage() {
+function PaymentsPageContent() {
   const [currentStep, setCurrentStep] = useState(1);
   const [uploadedFile, setUploadedFile] = useState<{
     name: string;
@@ -1037,5 +1038,13 @@ export default function PaymentsPage() {
         )}
       </AnimatePresence>
     </div>
+  );
+}
+
+export default function PaymentsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <PaymentsPageContent />
+    </Suspense>
   );
 }
